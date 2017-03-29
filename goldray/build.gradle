@@ -1,0 +1,30 @@
+group 'com.goldray'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile ("org.springframework.boot:spring-boot-starter-web:${springBootVersion}"){
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+    }
+    compile ("org.springframework.boot:spring-boot-starter-jetty:${springBootVersion}"){
+        exclude group: 'org.eclipse.jetty.websocket'
+    }
+    compile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    compile 'org.eclipse.jetty:apache-jsp:9.3.11.v20160721'
+    compile 'javax.servlet:jstl:1.2'
+    compile 'org.aspectj:aspectjweaver:1.8.9'
+    compile 'commons-codec:commons-codec:1.10'
+    compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1'
+    compile 'c3p0:c3p0:0.9.1.2'
+    compile 'mysql:mysql-connector-java:5.1.6'
+    compile 'com.google.guava:guava:19.0'
+    testCompile 'junit:junit:4.12'
+}
