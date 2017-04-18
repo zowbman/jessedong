@@ -7,63 +7,9 @@
 		<link rel="shortcut icon" href="favicon.ico">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<link type="text/css" data-themecolor="default" rel='stylesheet' href="/css/main-default.css">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
 	<body>
-		<div class="mask-l" style="background-color: #fff; width: 100%; height: 100%; position: fixed; top: 0; left:0; z-index: 9999999;"></div>
-		<!--removed by integration-->
-		<header>
-			<div class="container header-box">
-				<div class="header-box-r">
-					<nav class="header-nav">
-						<ul class="header-ul">
-							<li class="header-ul-li primary-b header-ul-li-active">
-								<a href="#">
-									<i class="fa fa-home header-ul-li-ico"></i>About Us
-									<span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
-								</a>
-							</li>
-							<li class="header-ul-li primary-b">
-								<a href="#">
-									<i class="fa fa-picture-o header-ul-li-ico"></i>Pro Center
-									<span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
-								</a>
-							</li>
-							<li class="header-ul-li primary-b">
-								<a href="#">
-									<i class="fa fa-code header-ul-li-ico"></i>News
-									<span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
-								</a>
-							</li>
-							<li class="header-ul-li primary-b">
-								<a href="#">
-									<i class="fa fa-cloud-download header-ul-li-ico"></i>Tech Support
-									<span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
-								</a>
-							</li>
-							<li class="header-ul-li primary-b">
-								<a href="#">
-									<i class="fa fa-folder-open header-ul-li-ico"></i>Success Case
-									<span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
-								</a>
-							</li>
-							<li class="header-ul-li primary-b">
-                                <a href="#">
-                                    <i class="fa fa-folder-open header-ul-li-ico"></i>Contact Us
-                                    <span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
-                                </a>
-                            </li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</header><!--导航结束-->
-		<div class="inner-page-header inner-page-header-bg">
-            <div class="inner-page-header-content">
-                <div class="container">
-                    <h1 class="f-primary-l c-default">Blog Listing Left Sidebar</h1>
-                </div>
-            </div>
-        </div><!--logo区域结束-->
+        <%@ include file="/jsp/frontend/public/menu.jsp" %>
         <div class="main">
             <div class="main-breadcrumbs">
                 <div class="container">
@@ -78,8 +24,7 @@
                 <div class="container">
                     <div class="row-right">
                         <div class="row-banner">
-                            <!-- 焦点图盒子 -->
-                            <div id="bannerId">
+                            <div id="banner">
                               <!-- 载入中的Loading图片(可选) -->
                               <div class="loading"><img src="/myfocus/mf-pattern/img/loading.gif" alt="请稍候..." /></div>
                               <!-- 内容列表 -->
@@ -172,6 +117,10 @@
                             <h4 class="primary-b categories-h4">Products Categories</h4>
                             <ul>
                                 <li>
+                                    <a class="categories_name" href="#"><i class="fa fa-plus"></i> All</a>
+                                    <span class="categories_count">100</span>
+                                </li>
+                                <li>
                                     <a class="categories_name" href="#"><i class="fa fa-plus"></i> Web Design</a>
                                     <span class="categories_count">12</span>
                                 </li>
@@ -209,24 +158,11 @@
                 </div>
             </div>
         </div><!--内容区域-->
-		<footer>
-		    <div class="footer">
-                <div class="container">
-                    <div>
-                        <div class="footer-copyright">Copyright © 2017 -  GoldrayTech Trade Co Ltd. All Rights Reserved.</div>
-                    </div>
-                </div>
-            </div>
-		</footer>
-		<script src="/js/jquery/jquery-1.11.1.min.js"></script>
-		<script src="/js/bootstrap.min.js"></script><!-- bootstrap -->
-		<script src="/js/modules/color-themes.js"></script><!-- Modules -->
-		<script src="/myfocus/myfocus-2.0.4.min.js"></script><!-- Modules -->
-		<script src="/js/cookie.js"></script>
+        <%@ include file="/jsp/frontend/public/footer.jsp" %>
 		<script>
 		    myFocus.set({
 		    pattern:'mF_fancy',
-		    id: 'bannerId',
+		    id: 'banner',
 		    height:420,
 		    wrap:false
 		    });

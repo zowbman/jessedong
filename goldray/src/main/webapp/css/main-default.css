@@ -329,7 +329,7 @@ header{
     padding-left: 15px;
     padding-right: 15px;
 }
-#bannerId *{
+#banner *{
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
@@ -472,3 +472,89 @@ footer {
     line-height: 2.5;
     color: #a5a5a5;
 }
+/*产品详情*/
+.pro-detail{
+    float:left;
+}
+/*产品详细左*/
+.pro-detail-left{
+    width:45%;
+    float: left;
+}
+/*产品详细右*/
+.pro-detail-right{
+    width:55%;
+    float: right;
+    padding-left: 25px;
+    padding-right: 10px;
+}
+.pro-detail-title h1{
+    margin:0;
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 2px;
+    color: #333;
+    line-height: 22px;
+}
+.pro-detail-num{
+    padding: 5px 0;
+    color: #999;
+}
+.pro-detail-share{
+    padding: 5px 0 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px #e0e0e0 solid;
+}
+.pro-detail-share>b{
+font-weight: normal;
+}
+.pro-detail-info{
+    text-indent:2em;
+    padding-bottom: 10px;
+    margin-bottom: 6px;
+    padding-top: 4px;
+    font-size: 16px;
+    line-height: 22px;
+}
+.pro-detail-more{
+    float:left;
+    width:100%;
+    padding-bottom: 20px;
+}
+.pro-detail-more-title{
+    height: 36px;
+    border-bottom: 1px #ddd solid;
+}
+.pro-detail-more-title>li{
+    float:left;
+    list-style-type: none;
+}
+.pro-detail-more-title span{
+    height: 35px;
+    line-height: 35px;
+    border: 1px #ddd solid;
+    border-bottom: 0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background: #f4f4f4;
+    float: left;
+    padding: 0 14px;
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+.pro-detail-more-title .current span{
+    background: #fff;
+    color: #333;
+    height: 36px;
+    cursor: default;
+}
+/*关于我，技术支持，联系我们*/
+.rich-text{
+    padding-bottom:20px;
+}
+/*新闻资讯*/
+/*成功案例*/
