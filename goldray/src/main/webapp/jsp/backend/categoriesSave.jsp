@@ -22,4 +22,9 @@
         <a href="/backend/categories/list" class="btn btn-default" style="width:70px;">Back</a>
      </form>
 </div>
+<script>
+    $('#categoriesName').blur(function(){
+        $('#cAbbreviate').val(pinyinUtil.getFirstLetter(this.value));
+    });
+</script>
 <%@ include file="/jsp/backend/public/footer.jsp" %>

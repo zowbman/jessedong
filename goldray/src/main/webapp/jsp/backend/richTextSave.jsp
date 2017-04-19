@@ -24,7 +24,6 @@
             <textarea id="richText" name="text">${rtps.text}</textarea>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
-        <a href="/backend/banner/list" class="btn btn-default" style="width:70px;">Back</a>
      </form>
 </div>
 <script type="text/javascript">

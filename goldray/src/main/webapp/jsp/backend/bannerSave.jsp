@@ -24,7 +24,6 @@
         <div class="form-group">
             <label for="">是否显示</label>
             <div>
-
                 <label class="radio-inline">
                     <input type="radio" name="isShow" id="isShow" value="0" <c:if test="${bp.isShow == 0 || bp == null}">checked="true"</c:if>> 否
                 </label>

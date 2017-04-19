@@ -17,9 +17,12 @@
 	<script src="/js/jquery/jquery-1.11.1.min.js"></script>
 	<script src="/js/jquery.validate.min.js"></script>
     <script src="/bootstrap3/js/bootstrap.min.js"></script>
+    <script src="/bootstrap3/js/bootstrap-select.min.js"></script>
     <script src="/bootstrap3/js/bootstrap-datetimepicker.min.js"></script>
     <script type="text/javascript"src="/ueditor/ueditor.config.js"></script>
     <script type="text/javascript"src="/ueditor/ueditor.all.min.js"></script>
+    <script src="/js/pinyin_dict_firstletter.js"></script>
+    <script src="/js/pinyinUtil.js"></script>
     <script src="/js/common.js"></script>
     <script src="/js/backend.js"></script>
   </head>
@@ -38,7 +41,7 @@
       <div id="navbar" class="collapse navbar-collapse" role="navigation">
         <ul id="mytab" class="nav navbar-nav">
           <li><a href="/backend/categories/list">分类管理</a></li>
-          <li><a href="#">产品管理管理</a></li>
+          <li><a href="/backend/product/list">产品管理管理</a></li>
           <li class="dropdown">
             <a data-toggle="dropdown" href="#" >
               站内信息管理 <span class="caret"></span>
@@ -46,7 +49,7 @@
             <ul class="dropdown-menu">
               <li><a href="/backend/banner/list">BANNER 管理</a></li>
               <li><a href="#">成功案例管理</a></li>
-              <li><a href="#">新闻管理</a></li>
+              <li><a href="/backend/news/list">新闻管理</a></li>
               <li><a href="/backend/richText/save?richType=0">关于我们、技术支持、联系我们信息管理</a></li>
             </ul>
           </li>

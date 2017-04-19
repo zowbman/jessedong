@@ -57,6 +57,11 @@ public class CategoriesController extends BaseController {
         }
         if ("edit".equalsIgnoreCase(type)) {
             CategoriesPo cPo = iCategoriesService.getById(id);
+            if (cPo == null) {
+                log.error("参数错误,type is edit, id:[{}] is error", id);
+                model.addAttribute("msg", BackendReMsg.ID_ERROR);
+                return "backend/error";
+            }
             model.addAttribute("cPo", cPo);
         }
         model.addAttribute("type", type);
@@ -91,7 +96,7 @@ public class CategoriesController extends BaseController {
             CategoriesPo cp = iCategoriesService.getById(categoriesVo.getId());
             if (cp != null) {
                 cp.setcAbbreviate(categoriesVo.getcAbbreviate());
-                cp.setcAbbreviate(categoriesVo.getCategoriesName());
+                cp.setCategoriesName(categoriesVo.getCategoriesName());
                 result = iCategoriesService.edit(cp);
             }
         }

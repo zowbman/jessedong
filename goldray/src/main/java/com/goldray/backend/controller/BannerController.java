@@ -73,6 +73,11 @@ public class BannerController extends BaseController {
         }
         if ("edit".equalsIgnoreCase(type)) {
             BannerPo bp = iBannerService.getById(id);
+            if (bp == null) {
+                log.error("参数错误,type is edit, id:[{}] is error", id);
+                model.addAttribute("msg", BackendReMsg.ID_ERROR);
+                return "backend/error";
+            }
             model.addAttribute("bp", bp);
         }
         model.addAttribute("type", type);
@@ -95,7 +100,7 @@ public class BannerController extends BaseController {
             model.addAttribute("msg", BackendReMsg.TYPE_ERROR);
             return "backend/error";
         }
-        if ("add".equalsIgnoreCase(type) && bannerVo.getBannerImg().isEmpty()) {
+        if ("add".equalsIgnoreCase(type) && (bannerVo.getBannerImg() == null || bannerVo.getBannerImg().isEmpty())) {
             log.error("参数错误,type is edit, file is empty");
             model.addAttribute("msg", BackendReMsg.IMGEMPTY_ERROR);
             return "backend/error";

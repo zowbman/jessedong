@@ -17,7 +17,7 @@ import java.util.List;
 @Mapper
 public interface BannerMapper {
 
-    @Select("select * from t_banner")
+    @Select("select id,title,path,imgName,isShow,addTime from t_banner")
     List<BannerPo> findAll();
 
     @Select("select id,title,path,imgName,isShow from t_banner where id=#{id}")

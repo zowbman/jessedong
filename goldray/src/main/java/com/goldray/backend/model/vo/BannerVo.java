@@ -45,6 +45,6 @@ public class BannerVo {
 
     @Override
     public String toString() {
-        return "id:" + this.id + ",title:" + this.title + ",bannerImg:" + bannerImg + ",isShow" + this.isShow;
+        return "id:" + this.id + ",title:" + this.title + ",bannerImg is null:" + (this.bannerImg == null ? "true" : this.bannerImg.isEmpty()) + ",isShow" + this.isShow;
     }
 }

@@ -2,8 +2,9 @@ package com.goldray.backend.controller;
 
 import com.goldray.backend.service.IBannerService;
 import com.goldray.backend.service.ICategoriesService;
+import com.goldray.backend.service.INewsService;
+import com.goldray.backend.service.IProductService;
 import com.goldray.backend.service.IRichTextService;
-import com.goldray.backend.service.impl.RichTextServiceImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 
@@ -26,6 +27,12 @@ public class BaseController {
         put(2, "联系我们");
     }};
 
+    protected static final Map<Integer, String> IMGNAME = new HashMap<Integer, String>() {{
+        put(1, "firstImgName");
+        put(2, "secondImgName");
+        put(3, "thirdImgName");
+    }};
+
     @Resource(name = "BCategoriesServiceImpl")
     protected ICategoriesService iCategoriesService;
 
@@ -35,8 +42,17 @@ public class BaseController {
     @Resource(name = "BRichTextServiceImpl")
     protected IRichTextService iRichTextService;
 
+    @Resource(name = "BNewsServiceImpl")
+    protected INewsService iNewsService;
+
+    @Resource(name = "BProductServiceImpl")
+    protected IProductService iProductService;
+
     @Value("${custom.bannerDir}")
     protected String bannerDir;
+
+    @Value("${custom.productDir}")
+    protected String productDir;
 
     @Value("${custom.richText}")
     protected String richText;
@@ -49,19 +65,21 @@ public class BaseController {
 
     /**
      * 获取真实路径
+     *
      * @param pyPath
      * @return
      */
-    protected String getSavePyPath(String pyPath){
+    protected String getSavePyPath(String pyPath) {
         return webfilesDir + pyPath;
     }
 
     /**
      * 获取存db中的路径
+     *
      * @param dbPath
      * @return
      */
-    protected String getSaveDbPath(String dbPath){
+    protected String getSaveDbPath(String dbPath) {
         return prefix + dbPath;
     }
 }
