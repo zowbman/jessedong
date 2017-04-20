@@ -16,7 +16,7 @@ import java.util.List;
  * Created by zwb on 2017/4/19.
  */
 @Mapper
-public interface ProductMapper {
+public interface BProductMapper {
     @Select("select code,categoriesId,title,path,coverImgName,addTime from t_product")
     List<ProductListPo> findAll();
 

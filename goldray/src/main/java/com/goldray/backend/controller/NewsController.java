@@ -82,6 +82,7 @@ public class NewsController extends BaseController {
             nps.setId(np.getId());
             nps.setTitle(np.getTitle());
             nps.setText(np.getText());
+            nps.setResume(np.getResume());
             nps.setIsTop(np.getIsTop());
             nps.setAddTime(ConcurrentDateTimeUtil.format(np.getAddTime() * 1000L));
         } else {
@@ -118,12 +119,14 @@ public class NewsController extends BaseController {
             np.setIsTop(newsVo.getIsTop());
             np.setAddTime((int) (newsVo.getAddTime().getTime() / 1000L));
             np.setText(newsVo.getText());
+            np.setResume(newsVo.getResume());
             result = iNewsService.save(np);
         } else {
             NewsPo np = iNewsService.getById(newsVo.getId());
             if (np != null) {
                 np.setTitle(newsVo.getTitle());
                 np.setText(newsVo.getText());
+                np.setResume(newsVo.getResume());
                 np.setIsTop(newsVo.getIsTop());
                 np.setAddTime((int) (newsVo.getAddTime().getTime() / 1000L));
                 result = iNewsService.update(np);

@@ -4,26 +4,26 @@
             <div class="main-breadcrumbs">
                 <div class="container">
                     <ul>
-                        <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+                        <li><a href="#"><i class="fa fa-home"></i><span data-localize="nav.home">Home</span></a></li>
                         <li><i class="fa fa-angle-right"></i><span>Pro Detail</span></li>
                     </ul>
                 </div>
             </div><!--面包屑区域结束-->
             <div class="main-content">
                 <div class="container">
-                    <div class="pro-detail">
+                    <div>
                         <div class="pro-detail-right">
                             <div class="pro-detail-title">
-                                <h1>Product Product Product Product Product Product Product Product Product Product Product Product Product Product</h1>
+                                <h1>商品标题</h1>
                             </div>
                             <div class="pro-detail-num">
-                                Item Code: LC61094-1
+                                Item Code: XX00000-0
                             </div>
                             <div class="pro-detail-share">
                                 <b>Share this:</b>
                             </div>
                             <div class="pro-detail-info">
-                                Product Product Product Product Product Product Product Product Product Product Product Product Product ProductProduct Product Product Product Product Product Product Product Product Product Product Product Product ProductProduct Product Product Product Product Product Product Product Product Product Product Product Product Product
+                                商品简介
                             </div>
                         </div><!--产品详细右区域结束-->
                         <div class="pro-detail-left">
@@ -31,12 +31,7 @@
                                 <div class="loading"><img src="/myfocus/mf-pattern/img/loading.gif" alt="请稍候..." /></div>
                                 <!-- 内容列表 -->
                                 <div class="pic">
-                                    <ul>
-                                        <li><a href="#"><img src="/img/banner/3.jpg" alt="标题1" /></a></li>
-                                        <li><a href="#"><img src="/img/banner/2.jpg" alt="标题2" /></a></li>
-                                        <li><a href="#"><img src="/img/banner/1.jpg" alt="标题3" /></a></li>
-                                        <li><a href="#"><img src="/img/banner/4.jpg" alt="标题4" /></a></li>
-                                    </ul>
+                                    <ul></ul>
                                 </div>
                             </div>
                         </div><!--产品详细左区域结束-->
@@ -54,12 +49,36 @@
         </div><!--内容区域-->
 <%@ include file="/jsp/frontend/public/footer.jsp" %>
         <script>
-		    myFocus.set({
-		    pattern:'mF_games_tb',
-		    id: 'proDetailImg',
-		    height:455,
-		    wrap:false
-		    });
+		    $(function(){
+                $.ajax({
+                    type: 'GET',
+                    url: '/product/json/v1/${code}',
+                    success: function(data){
+                        if(data.code==0){
+                            $('.pro-detail-title h1').html(data.data.title);
+                            $('.pro-detail-num').html('Item Code: '+data.data.code);
+                            $('.pro-detail-info').html(data.data.introduction);
+                            var _html='';
+                            $.each(data.data.pdImg,function(i,item){
+                                _html+='<li><a href="'+item+'" target="blank"><img src="'+item+'" alt="" /></a></li>';
+                            });
+                            $('#proDetailImg ul').html(_html);
+                            $('#pro-detail-more-content').html(data.data.text);
+                            myFocus.set({
+                                pattern:'mF_games_tb',
+                                id: 'proDetailImg',
+                                height:455,
+                                wrap:false
+                            });
+                        }else{
+                            alert(data.msg);
+                        }
+                    },
+                    error: function() {
+                        alert('请求数据失败');
+                    }
+                });
+            });
 		</script>
 	</body>
 </html>

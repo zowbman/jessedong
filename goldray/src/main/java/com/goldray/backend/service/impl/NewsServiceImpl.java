@@ -1,6 +1,6 @@
 package com.goldray.backend.service.impl;
 
-import com.goldray.backend.mapper.NewsMapper;
+import com.goldray.backend.mapper.BNewsMapper;
 import com.goldray.backend.model.po.NewsListPo;
 import com.goldray.backend.model.po.NewsPo;
 import com.goldray.backend.service.INewsService;
@@ -20,7 +20,7 @@ public class NewsServiceImpl implements INewsService {
     private Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
-    private NewsMapper newsMapper;
+    private BNewsMapper newsMapper;
 
     @Override
     public List<NewsListPo> findAll() {
@@ -39,17 +39,17 @@ public class NewsServiceImpl implements INewsService {
             log.error("clearTopNews(int isTop) 清除新闻置顶失败");
             return result;
         }
-        return newsMapper.save(newsPo.getTitle(), newsPo.getText(), newsPo.getIsTop(), newsPo.getAddTime());
+        return newsMapper.save(newsPo.getTitle(), newsPo.getText(), newsPo.getResume(), newsPo.getIsTop(), newsPo.getAddTime());
     }
 
     @Override
     public boolean update(NewsPo newsPo) {
-        boolean result = clearTopNews(newsPo.getIsTop(), newsPo.getId());
+        boolean result = clearTop(newsPo.getIsTop(), newsPo.getId());
         if (!result) {
             log.error("clearTopNews(int isTop, int id) 清除新闻置顶失败");
             return result;
         }
-        return newsMapper.update(newsPo.getId(), newsPo.getTitle(), newsPo.getText(), newsPo.getIsTop(), newsPo.getAddTime());
+        return newsMapper.update(newsPo.getId(), newsPo.getTitle(), newsPo.getText(), newsPo.getResume(), newsPo.getIsTop(), newsPo.getAddTime());
     }
 
     @Override
@@ -77,9 +77,13 @@ public class NewsServiceImpl implements INewsService {
      * @param id
      * @return
      */
-    private boolean clearTopNews(int isTop, int id) {
+    private boolean clearTop(int isTop, int id) {
         if (isTop == 1) {
-            return newsMapper.updateByIsTopAndNotMe(id);
+            int clearTopId = newsMapper.getIdByIsTopAndNotMe(id);
+            if(clearTopId > 0){
+                return true;
+            }
+            return newsMapper.clearTopById(clearTopId);
         }
         return true;
     }

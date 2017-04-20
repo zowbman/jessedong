@@ -1,6 +1,6 @@
 package com.goldray.backend.service.impl;
 
-import com.goldray.backend.mapper.BannerMapper;
+import com.goldray.backend.mapper.BBannerMapper;
 import com.goldray.backend.model.po.BannerPo;
 import com.goldray.backend.service.IBannerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import java.util.List;
 public class BannerServiceImpl implements IBannerService {
 
     @Autowired
-    private BannerMapper bannerMapper;
+    private BBannerMapper bannerMapper;
 
     @Override
     public List<BannerPo> findAll() {
@@ -29,12 +29,12 @@ public class BannerServiceImpl implements IBannerService {
 
     @Override
     public boolean save(BannerPo bannerPo) {
-        return bannerMapper.save(bannerPo.getTitle(), bannerPo.getPath(), bannerPo.getImgName(), bannerPo.getIsShow(), (int) (System.currentTimeMillis() / 1000L));
+        return bannerMapper.save(bannerPo.getTitle(), bannerPo.getPath(), bannerPo.getImgName(), bannerPo.getUrl(), bannerPo.getIsShow(), bannerPo.getIsBlank(), (int) (System.currentTimeMillis() / 1000L));
     }
 
     @Override
     public boolean edit(BannerPo bannerPo) {
-        return bannerMapper.edit(bannerPo.getId(), bannerPo.getTitle(), bannerPo.getPath(), bannerPo.getImgName(), bannerPo.getIsShow());
+        return bannerMapper.edit(bannerPo.getId(), bannerPo.getTitle(), bannerPo.getPath(), bannerPo.getImgName(), bannerPo.getUrl(), bannerPo.getIsShow(), bannerPo.getIsBlank());
     }
 
     @Override

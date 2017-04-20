@@ -14,6 +14,7 @@ public class NewsVo {
     private Date addTime;
     private int isTop;
     private String text;
+    private String resume;
 
     public int getId() {
         return id;
@@ -55,8 +56,16 @@ public class NewsVo {
         this.text = text;
     }
 
+    public String getResume() {
+        return resume;
+    }
+
+    public void setResume(String resume) {
+        this.resume = resume;
+    }
+
     @Override
     public String toString() {
-        return "id:" + this.id + ",title:" + this.title + ",isTop:" + this.isTop + ",addTime" + this.addTime;
+        return "id:" + this.id + ",title:" + this.title + ",isTop:" + this.isTop + ",resume:" + this.resume + ",addTime" + this.addTime;
     }
 }

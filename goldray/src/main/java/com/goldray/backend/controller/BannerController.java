@@ -130,7 +130,9 @@ public class BannerController extends BaseController {
             bp.setTitle(bannerVo.getTitle());
             bp.setPath(getSaveDbPath(path));
             bp.setImgName(imgName);
+            bp.setUrl(bannerVo.getUrl());
             bp.setIsShow(bannerVo.getIsShow());
+            bp.setIsBlank(bannerVo.getIsBlank());
             result = iBannerService.save(bp);
         } else {
             BannerPo bp = iBannerService.getById(bannerVo.getId());
@@ -142,7 +144,9 @@ public class BannerController extends BaseController {
                 if (imgName != null) {
                     bp.setImgName(imgName);
                 }
+                bp.setUrl(bannerVo.getUrl());
                 bp.setIsShow(bannerVo.getIsShow());
+                bp.setIsBlank(bannerVo.getIsBlank());
                 result = iBannerService.edit(bp);
             }
         }

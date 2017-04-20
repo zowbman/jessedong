@@ -7,6 +7,7 @@ public class NewsPo {
     private int id;
     private String title;
     private String text;
+    private String resume;
     private int isTop;
     private int addTime;
 
@@ -32,6 +33,14 @@ public class NewsPo {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public String getResume() {
+        return resume;
+    }
+
+    public void setResume(String resume) {
+        this.resume = resume;
     }
 
     public int getIsTop() {

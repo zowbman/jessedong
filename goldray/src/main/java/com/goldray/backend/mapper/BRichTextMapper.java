@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Update;
  * Created by zwb on 2017/4/18.
  */
 @Mapper
-public interface RichTextMapper {
+public interface BRichTextMapper {
     @Select("select id,type,text,addTime from t_rich_text where type=#{type}")
     RichTextPo getByType(@Param("type") int type);
 

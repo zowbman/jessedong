@@ -4,17 +4,15 @@
             <div class="main-breadcrumbs">
                 <div class="container">
                     <ul>
-                        <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-                        <li><i class="fa fa-angle-right"></i><span>richText</span></li>
+                        <li><a href="#"><i class="fa fa-home"></i><span data-localize="nav.home">Home</span></a></li>
+                        <li><i class="fa fa-angle-right"></i><span data-localize="nav.news">News</span></li>
                     </ul>
                 </div>
             </div><!--面包屑区域结束-->
-            <div class="main-content">
+            <div class="main-content news-list-content">
                 <div class="container">
-                    <div class="rich-text">
-                        <div id="rich-text-content">
-                            textz
-                        </div>
+                    <div class="news-list">
+                        <ul></ul>
                     </div>
                 </div>
             </div>

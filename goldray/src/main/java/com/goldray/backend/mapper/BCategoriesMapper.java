@@ -14,7 +14,7 @@ import java.util.List;
  * Created by zwb on 2017/3/30.
  */
 @Mapper
-public interface CategoriesMapper {
+public interface BCategoriesMapper {
 
     @Select("select * from t_categories")
     List<CategoriesPo> findAll();

@@ -1,42 +1,59 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <header>
+    <div class="function-box">
+        <div class="container">
+            <div class="language-box">
+                Language :
+                <select id="langSelect" name="langSelect" onchange="chgLang();">
+                        <option value="zh">简体中文</option>
+                        <option value="en">English</option>
+                </select>
+            </div>
+        </div>
+    </div>
     <div class="container header-box">
         <div class="header-box-r">
             <nav class="header-nav">
                 <ul class="header-ul">
                     <li class="header-ul-li primary-b header-ul-li-active">
-                        <a href="#">
-                            <i class="fa fa-home header-ul-li-ico"></i>About Us
+                        <a href="/">
+                            <i class="fa fa-home header-ul-li-ico"></i><span data-localize="nav.home">Home</span>
+                            <span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
+                        </a>
+                    </li>
+                    <li class="header-ul-li primary-b">
+                        <a href="/nav/aboutUs">
+                            <i class="fa fa-user header-ul-li-ico"></i><span data-localize="nav.aboutUs">About Us</span>
                             <span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
                         </a>
                     </li>
                     <li class="header-ul-li primary-b">
                         <a href="#">
-                            <i class="fa fa-picture-o header-ul-li-ico"></i>Pro Center
+                            <i class="fa fa-product-hunt header-ul-li-ico"></i><span data-localize="nav.proCenter">Pro Center</span>
+                            <span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
+                        </a>
+                    </li>
+                    <li class="header-ul-li primary-b">
+                        <a href="/news">
+                            <i class="fa fa-newspaper-o header-ul-li-ico"></i><span data-localize="nav.news">News</span>
+                            <span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
+                        </a>
+                    </li>
+                    <li class="header-ul-li primary-b">
+                        <a href="/nav/techSupport">
+                            <i class="fa fa-rocket header-ul-li-ico"></i><span data-localize="nav.techSupport">Tech Support</span>
                             <span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
                         </a>
                     </li>
                     <li class="header-ul-li primary-b">
                         <a href="#">
-                            <i class="fa fa-code header-ul-li-ico"></i>News
+                            <i class="fa fa-thumbs-o-up header-ul-li-ico"></i><span data-localize="nav.successCase">Success Case</span>
                             <span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
                         </a>
                     </li>
                     <li class="header-ul-li primary-b">
-                        <a href="#">
-                            <i class="fa fa-cloud-download header-ul-li-ico"></i>Tech Support
-                            <span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
-                        </a>
-                    </li>
-                    <li class="header-ul-li primary-b">
-                        <a href="#">
-                            <i class="fa fa-folder-open header-ul-li-ico"></i>Success Case
-                            <span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
-                        </a>
-                    </li>
-                    <li class="header-ul-li primary-b">
-                        <a href="#">
-                            <i class="fa fa-folder-open header-ul-li-ico"></i>Contact Us
+                        <a href="/nav/contactUs">
+                            <i class="fa fa-phone header-ul-li-ico"></i><span data-localize="nav.contactUs">Contact Us</span>
                             <span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
                         </a>
                     </li>

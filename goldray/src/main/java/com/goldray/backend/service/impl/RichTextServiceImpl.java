@@ -1,6 +1,6 @@
 package com.goldray.backend.service.impl;
 
-import com.goldray.backend.mapper.RichTextMapper;
+import com.goldray.backend.mapper.BRichTextMapper;
 import com.goldray.backend.model.po.RichTextPo;
 import com.goldray.backend.service.IRichTextService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class RichTextServiceImpl implements IRichTextService {
 
     @Autowired
-    private RichTextMapper richTextMapper;
+    private BRichTextMapper richTextMapper;
 
     @Override
     public RichTextPo getByType(int type) {

@@ -1,7 +1,7 @@
 package com.goldray.backend.service.impl;
 
-import com.goldray.backend.mapper.CategoriesMapper;
-import com.goldray.backend.mapper.ProductMapper;
+import com.goldray.backend.mapper.BCategoriesMapper;
+import com.goldray.backend.mapper.BProductMapper;
 import com.goldray.backend.model.po.CategoriesPo;
 import com.goldray.backend.model.po.ProductListPo;
 import com.goldray.backend.model.po.ProductPo;
@@ -23,10 +23,10 @@ public class ProductServiceImpl implements IProductService {
     private Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
-    private ProductMapper productMapper;
+    private BProductMapper productMapper;
 
     @Autowired
-    private CategoriesMapper categoriesMapper;
+    private BCategoriesMapper categoriesMapper;
 
     @Override
     public List<ProductListPo> findAll() {

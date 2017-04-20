@@ -48,7 +48,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a href="/backend/banner/list">BANNER 管理</a></li>
-              <li><a href="#">成功案例管理</a></li>
+              <!--<li><a href="#">成功案例管理</a></li>-->
               <li><a href="/backend/news/list">新闻管理</a></li>
               <li><a href="/backend/richText/save?richType=0">关于我们、技术支持、联系我们信息管理</a></li>
             </ul>

@@ -22,6 +22,10 @@
             </div>
         </div>
         <div class="form-group">
+            <label for="">URL</label>
+            <input type="text" class="form-control" id="url" name="url" placeholder="URL" value="${bp.url}">
+        </div>
+        <div class="form-group">
             <label for="">是否显示</label>
             <div>
                 <label class="radio-inline">
@@ -29,6 +33,17 @@
                 </label>
                 <label class="radio-inline">
                     <input type="radio" name="isShow" id="isShow" value="1" <c:if test="${bp.isShow == 1}">checked="true"</c:if>> 是
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="">是否新窗体打开</label>
+            <div>
+                <label class="radio-inline">
+                    <input type="radio" name="isBlank" id="isBlank" value="0" <c:if test="${bp.isBlank == 0 || bp == null}">checked="true"</c:if>> 否
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="isBlank" id="isBlank" value="1" <c:if test="${bp.isBlank == 1}">checked="true"</c:if>> 是
                 </label>
             </div>
         </div>

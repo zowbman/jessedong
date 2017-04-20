@@ -8,7 +8,9 @@ public class BannerPo {
     private String title;
     private String path;
     private String imgName;
+    private String url;
     private int isShow;
+    private int isBlank;
     private int addTime;
 
     public int getId() {
@@ -43,6 +45,14 @@ public class BannerPo {
         this.imgName = imgName;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     public int getIsShow() {
         return isShow;
     }
@@ -51,9 +61,18 @@ public class BannerPo {
         this.isShow = isShow;
     }
 
+    public int getIsBlank() {
+        return isBlank;
+    }
+
+    public void setIsBlank(int isBlank) {
+        this.isBlank = isBlank;
+    }
+
     public int getAddTime() {
         return addTime;
     }
+
 
     public void setAddTime(int addTime) {
         this.addTime = addTime;

@@ -1,6 +1,6 @@
 package com.goldray.backend.service.impl;
 
-import com.goldray.backend.mapper.CategoriesMapper;
+import com.goldray.backend.mapper.BCategoriesMapper;
 import com.goldray.backend.model.po.CategoriesPo;
 import com.goldray.backend.model.vo.CategoriesVo;
 import com.goldray.backend.service.ICategoriesService;
@@ -16,7 +16,7 @@ import java.util.List;
 public class CategoriesServiceImpl implements ICategoriesService {
 
     @Autowired
-    private CategoriesMapper categoriesMapper;
+    private BCategoriesMapper categoriesMapper;
 
     @Override
     public List<CategoriesPo> findAll() {
