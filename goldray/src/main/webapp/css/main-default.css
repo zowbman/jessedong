@@ -343,7 +343,7 @@ header{
 }
 .topNews{
     overflow: hidden;
-    padding-left: 16px;
+    padding: 0 10px;
 }
 .topNews_title,.pro-list_title{
     display: block;

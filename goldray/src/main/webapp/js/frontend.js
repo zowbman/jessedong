@@ -8,7 +8,7 @@ $(function(){
                 if(data.code==0){
                     var _html='';
                     $.each(data.data, function(i,item){
-                        _html+='<li><a class="categories_name" href="javascript"><i class="fa fa-plus"></i> '+item.categoriesName+'</a><span class="categories_count">'+item.count+'</span></li>'
+                        _html+='<li><a class="categories_name" href="javascript:;"><i class="fa fa-plus"></i> '+item.categoriesName+'</a><span class="categories_count">'+item.count+'</span></li>'
                     });
                     $('#pdCategories-ul').html(_html)
                 }else{
@@ -39,13 +39,16 @@ $(function(){
                         _html+='<img src="'+item.path+item.imgName+'" alt="" /></a></li>';
                     });
                     _bannerPic.html(_html);
-                    console.log(data.data);
-                    myFocus.set({
-                        pattern:'mF_fancy',
-                        id: 'banner',
-                        height:420,
-                        wrap:false
-                    });
+                    if(_html!= ''){
+                        myFocus.set({
+                            pattern:'mF_fancy',
+                            id: 'banner',
+                            height:420,
+                            wrap:false
+                        });
+                    }else{
+                        $('#banner .loading').remove();
+                    }
                 }else{
                     alert(data.msg);
                 }
@@ -128,6 +131,45 @@ $(function(){
             error: function() {
                 alert('news请求数据失败');
             }
+        });
+    }
+    //admin
+    if($('#admin-login').length ==1){
+        $('#admin-login').validate({
+            submitHandler: function(form){
+                $.ajax({
+                    type: 'POST',
+                    url: "/frontend/json/v1/adminLogin",
+                    data: $(form).serialize(),
+                    success: function(data){
+                        if(data.code==0){
+                            alert(data.msg);
+                            location.href=data.data;
+                        }else{
+                            alert(data.msg);
+                        }
+                    },
+                    error: function() {
+                        alert("提交失败");
+                    }
+                });
+            },
+            rules:{
+                username:{
+                    required:true
+                },
+                pwd:{
+                    required:true
+                }
+           },
+           messages:{
+                username:{
+                    required:'*Please enter Username'
+                },
+                pwd:{
+                    required:'*Please enter Password'
+                }
+           }
         });
     }
 });

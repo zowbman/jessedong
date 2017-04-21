@@ -29,6 +29,12 @@ public class BaseController {
         put(2, "联系我们");
     }};
 
+    protected static final Map<Integer, String> NAV_ICO = new HashMap<Integer, String>() {{
+        put(0, "fa-user");
+        put(1, "fa-rocket");
+        put(2, "fa-phone");
+    }};
+
     @Autowired
     protected IBannerService iBannerService;
 

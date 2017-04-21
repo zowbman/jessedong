@@ -21,7 +21,8 @@ public class PageController extends BaseController {
      * @return
      */
     @GetMapping("")
-    public String index() {
+    public String index(Model model) {
+        model.addAttribute("home", 1);
         return "frontend/index";
     }
 
@@ -33,12 +34,16 @@ public class PageController extends BaseController {
      */
     @GetMapping("/nav/{page}")
     public String nav(@PathVariable("page") String page, Model model) {
+        log.info("param page:[{}]", page);
         if (NAV_TYPE.get(page) == null) {
             log.error("param page:[{}] is error", page);
             return "redirect:/";
         }
+        int richTextType = NAV_TYPE.get(page);
         model.addAttribute("page", page);
-        model.addAttribute("richTextType", NAV_TYPE.get(page));
+        model.addAttribute("richTextType", richTextType);
+        model.addAttribute(page, 1);
+        model.addAttribute("navIcon", NAV_ICO.get(richTextType));
         return "frontend/richText";
     }
 
@@ -48,7 +53,8 @@ public class PageController extends BaseController {
      * @return
      */
     @GetMapping("/news")
-    public String news() {
+    public String news(Model model) {
+        model.addAttribute("news", 1);
         return "frontend/newsList";
     }
 
@@ -76,5 +82,10 @@ public class PageController extends BaseController {
     public String pdDetail(@PathVariable("code") String code, Model model) {
         model.addAttribute("code", code);
         return "frontend/productDetail";
+    }
+
+    @GetMapping("/admin")
+    public String admin() {
+        return "frontend/adminLogin";
     }
 }

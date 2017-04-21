@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header>
     <div class="function-box">
         <div class="container">
@@ -15,13 +16,13 @@
         <div class="header-box-r">
             <nav class="header-nav">
                 <ul class="header-ul">
-                    <li class="header-ul-li primary-b header-ul-li-active">
+                    <li class="header-ul-li primary-b <c:if test="${home == 1}">header-ul-li-active</c:if>">
                         <a href="/">
                             <i class="fa fa-home header-ul-li-ico"></i><span data-localize="nav.home">Home</span>
                             <span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
                         </a>
                     </li>
-                    <li class="header-ul-li primary-b">
+                    <li class="header-ul-li primary-b <c:if test="${aboutUs == 1}">header-ul-li-active</c:if>">
                         <a href="/nav/aboutUs">
                             <i class="fa fa-user header-ul-li-ico"></i><span data-localize="nav.aboutUs">About Us</span>
                             <span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
@@ -33,13 +34,13 @@
                             <span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
                         </a>
                     </li>
-                    <li class="header-ul-li primary-b">
+                    <li class="header-ul-li primary-b <c:if test="${news == 1}">header-ul-li-active</c:if>">
                         <a href="/news">
                             <i class="fa fa-newspaper-o header-ul-li-ico"></i><span data-localize="nav.news">News</span>
                             <span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
                         </a>
                     </li>
-                    <li class="header-ul-li primary-b">
+                    <li class="header-ul-li primary-b <c:if test="${techSupport == 1}">header-ul-li-active</c:if>">
                         <a href="/nav/techSupport">
                             <i class="fa fa-rocket header-ul-li-ico"></i><span data-localize="nav.techSupport">Tech Support</span>
                             <span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
@@ -51,7 +52,7 @@
                             <span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>
                         </a>
                     </li>
-                    <li class="header-ul-li primary-b">
+                    <li class="header-ul-li primary-b <c:if test="${contactUs == 1}">header-ul-li-active</c:if>">
                         <a href="/nav/contactUs">
                             <i class="fa fa-phone header-ul-li-ico"></i><span data-localize="nav.contactUs">Contact Us</span>
                             <span class="header-ul-li-ico-dropdown"><i class="fa fa-arrow-circle-down"></i></span>

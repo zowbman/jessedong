@@ -4,9 +4,7 @@
             <div class="main-breadcrumbs">
                 <div class="container">
                     <ul>
-                        <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-                        <!--<li><i class="fa fa-angle-right"></i><a href="#">Blog</a></li>-->
-                        <li><i class="fa fa-angle-right"></i><span>Index</span></li>
+                        <li><a href="/"><i class="fa fa-home"></i><span data-localize="nav.home">Home</span></a></li>
                     </ul>
                 </div>
             </div><!--面包屑区域结束-->
@@ -53,41 +51,7 @@
                         </div><!--搜索结束-->
                         <div class="row-categories">
                             <h4 class="primary-b categories-h4">Products Categories</h4>
-                            <ul id="pdCategories-ul">
-                                <li><a class="categories_name" href="#"><i class="fa fa-plus"></i> All</a><span class="categories_count">100</span></li>
-                                <li>
-                                    <a class="categories_name" href="#"><i class="fa fa-plus"></i> Web Design</a>
-                                    <span class="categories_count">12</span>
-                                </li>
-                                <li>
-                                    <a class="categories_name" href="#"><i class="fa fa-plus"></i> Smart Phone</a>
-                                    <span class="categories_count">23</span>
-                                </li>
-                                <li>
-                                    <a class="categories_name" href="#"><i class="fa fa-plus"></i> Latop</a>
-                                    <span class="categories_count">12</span>
-                                </li>
-                                <li>
-                                    <a class="categories_name" href="#"><i class="fa fa-plus"></i> Apple Store</a>
-                                    <span class="categories_count">23</span>
-                                </li>
-                                <li>
-                                    <a class="categories_name" href="#"><i class="fa fa-plus"></i> Wordpress Theme</a>
-                                    <span class="categories_count">12</span>
-                                </li>
-                                <li>
-                                    <a class="categories_name" href="#"><i class="fa fa-plus"></i> Web Design</a>
-                                    <span class="categories_count">23</span>
-                                </li>
-                                <li>
-                                    <a class="categories_name" href="#"><i class="fa fa-plus"></i> Sport</a>
-                                    <span class="categories_count">12</span>
-                                </li>
-                                <li>
-                                    <a class="categories_name" href="#"><i class="fa fa-plus"></i> Fashion</a>
-                                    <span class="categories_count">23</span>
-                                </li>
-                            </ul>
+                            <ul id="pdCategories-ul"></ul>
                         </div>
                     </div><!--左区域结束-->
                 </div>

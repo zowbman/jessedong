@@ -34,57 +34,18 @@ public class NewsServiceImpl implements INewsService {
 
     @Override
     public boolean save(NewsPo newsPo) {
-        boolean result = clearTopNews(newsPo.getIsTop());
-        if (!result) {
-            log.error("clearTopNews(int isTop) 清除新闻置顶失败");
-            return result;
-        }
+        newsMapper.clearTop();
         return newsMapper.save(newsPo.getTitle(), newsPo.getText(), newsPo.getResume(), newsPo.getIsTop(), newsPo.getAddTime());
     }
 
     @Override
     public boolean update(NewsPo newsPo) {
-        boolean result = clearTop(newsPo.getIsTop(), newsPo.getId());
-        if (!result) {
-            log.error("clearTopNews(int isTop, int id) 清除新闻置顶失败");
-            return result;
-        }
+        newsMapper.clearTop();
         return newsMapper.update(newsPo.getId(), newsPo.getTitle(), newsPo.getText(), newsPo.getResume(), newsPo.getIsTop(), newsPo.getAddTime());
     }
 
     @Override
     public boolean deleteById(int id) {
         return newsMapper.deleteById(id);
-    }
-
-    /**
-     * 清除新闻置顶
-     *
-     * @param isTop
-     * @return
-     */
-    private boolean clearTopNews(int isTop) {
-        if (isTop == 1) {
-            return newsMapper.updateByIsTop();
-        }
-        return true;
-    }
-
-    /**
-     * 清除新闻置顶
-     *
-     * @param isTop
-     * @param id
-     * @return
-     */
-    private boolean clearTop(int isTop, int id) {
-        if (isTop == 1) {
-            int clearTopId = newsMapper.getIdByIsTopAndNotMe(id);
-            if(clearTopId > 0){
-                return true;
-            }
-            return newsMapper.clearTopById(clearTopId);
-        }
-        return true;
     }
 }

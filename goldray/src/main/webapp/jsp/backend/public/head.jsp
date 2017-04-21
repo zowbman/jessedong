@@ -36,7 +36,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="javascript:;">GoldrayTech 后台管理</a>
+        <a class="navbar-brand" href="/backend">GoldrayTech 后台管理</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse" role="navigation">
         <ul id="mytab" class="nav navbar-nav">
@@ -54,6 +54,9 @@
             </ul>
           </li>
 
+        </ul>
+        <ul class="nav navbar-nav" style="float:right;">
+          <li><a href="/backend/logout">注销</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>

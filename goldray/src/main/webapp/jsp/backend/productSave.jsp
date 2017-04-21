@@ -43,7 +43,7 @@
           <div class="col-md-3">
             <div class="form-group">
                 <label for="">图片1</label>
-                <c:if test="${pp.firstImg != ''}">
+                <c:if test="${pp.firstImg != null && pp.firstImg != ''}">
                     <a href="/backend/product/rmPdImg?code=${pp.code}&imgNum=1">移除</a>
                 </c:if>
                 <input type="file" id="firstImg" name="firstImg" accept="image/*">
@@ -55,7 +55,7 @@
           <div class="col-md-3">
             <div class="form-group">
                 <label for="">图片2</label>
-                <c:if test="${pp.secondImg != ''}">
+                <c:if test="${pp.secondImg != null && pp.secondImg != ''}">
                     <a href="/backend/product/rmPdImg?code=${pp.code}&imgNum=2">移除</a>
                 </c:if>
                 <input type="file" id="secondImg" name="secondImg" accept="image/*">
@@ -67,7 +67,7 @@
           <div class="col-md-3">
             <div class="form-group">
                 <label for="">图片3</label>
-                <c:if test="${pp.thirdImg != ''}">
+                <c:if test="${pp.thirdImg != null && pp.thirdImg != ''}">
                     <a href="/backend/product/rmPdImg?code=${pp.code}&imgNum=3">移除</a>
                 </c:if>
                 <input type="file" id="thirdImg" name="thirdImg" accept="image/*">

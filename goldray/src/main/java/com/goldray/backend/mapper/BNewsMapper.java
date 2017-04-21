@@ -32,11 +32,5 @@ public interface BNewsMapper {
     boolean deleteById(@Param("id") int id);
 
     @Update("update t_news set isTop=0 where isTop=1")
-    boolean updateByIsTop();
-
-    @Update("update t_news set isTop=0 where and id==#{id}")
-    boolean clearTopById(@Param("id") int id);
-
-    @Select("select id from t_news where isTop=1 and id=#{id}")
-    int getIdByIsTopAndNotMe(@Param("id") int id);
+    boolean clearTop();
 }

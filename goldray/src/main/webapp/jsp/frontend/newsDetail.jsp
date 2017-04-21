@@ -4,8 +4,7 @@
             <div class="main-breadcrumbs">
                 <div class="container">
                     <ul>
-                        <li><a href="#"><i class="fa fa-home"></i><span data-localize="nav.home">Home</span></a></li>
-                        <li><i class="fa fa-angle-right"></i><span data-localize="nav.news">News</span></li>
+                        <li><a href="/news/"><i class="fa fa-newspaper-o"></i><span data-localize="nav.news">News</span></a></li>
                     </ul>
                 </div>
             </div><!--面包屑区域结束-->
