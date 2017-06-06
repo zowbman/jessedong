@@ -35,6 +35,7 @@ public class NewsController extends BaseController {
     @GetMapping("/v1/list")
     @ResponseBody
     public PubReturnMsg list() {
+        System.out.println("hello");
         List<NewsListPo> newsListPos = iNewsService.findByOrderByAddTime(OrderStyleEnum.DESC);
         List<NewsListPoShow> newsListPoShows = new ArrayList<>();
         newsListPos.forEach((newsListPo) -> {
