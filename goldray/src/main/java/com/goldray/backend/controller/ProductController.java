@@ -134,25 +134,29 @@ public class ProductController extends BaseController {
             model.addAttribute("msg", BackendReMsg.PRODUCTCODE_ERROR);
             return "backend/error";
         }
+        ProductPo pp = null;
+        if ("edit".equalsIgnoreCase(type)) {
+            pp = iProductService.getByCode(productVo.getCode());
+        }
         String coverImgName = null, firstImgName = null, secondImgName = null, thirdImgName = null, path = null;
         //封面
-        Map<String, Object> imgData = uploadProImg(productVo.getCoverImg());
+        Map<String, Object> imgData = uploadProImg(productVo.getCoverImg(), pp == null ? null : pp.getPath());
         if ((boolean) imgData.get("state")) {
             path = (String) imgData.get("path");
             coverImgName = (String) imgData.get("imgName");
         }
         //图片1
-        imgData = uploadProImg(productVo.getFirstImg());
+        imgData = uploadProImg(productVo.getFirstImg(), pp == null ? null : pp.getPath());
         if ((boolean) imgData.get("state")) {
             firstImgName = (String) imgData.get("imgName");
         }
         //图片2
-        imgData = uploadProImg(productVo.getSecondImg());
+        imgData = uploadProImg(productVo.getSecondImg(), pp == null ? null : pp.getPath());
         if ((boolean) imgData.get("state")) {
             secondImgName = (String) imgData.get("imgName");
         }
         //图片3
-        imgData = uploadProImg(productVo.getThirdImg());
+        imgData = uploadProImg(productVo.getThirdImg(), pp == null ? null : pp.getPath());
         if ((boolean) imgData.get("state")) {
             thirdImgName = (String) imgData.get("imgName");
         }
@@ -176,7 +180,6 @@ public class ProductController extends BaseController {
             productPo.setText(productVo.getText());
             result = iProductService.save(productPo);
         } else {
-            ProductPo pp = iProductService.getByCode(productVo.getCode());
             if (pp != null) {
                 if (path != null) {
                     pp.setPath(path);
@@ -215,17 +218,26 @@ public class ProductController extends BaseController {
      * @return
      */
     private Map<String, Object> uploadProImg(MultipartFile imgFile) {
+        return uploadProImg(imgFile, null);
+    }
+
+    private Map<String, Object> uploadProImg(MultipartFile imgFile, String path) {
         Map<String, Object> data = new HashMap<>();
         data.put("state", false);
         if (imgFile != null && !imgFile.isEmpty()) {
-            String path = productDir + ConcurrentDateUtil.format(System.currentTimeMillis()) + "/";
+            String newPath;
+            if (path == null) {
+                newPath = productDir + ConcurrentDateUtil.format(System.currentTimeMillis()) + "/";
+            } else {
+                newPath = productDir + path.substring(path.lastIndexOf("product/") + "product/".length(), path.length());
+            }
             String imgName = imgFile.getOriginalFilename();
             String extName = imgName.substring(imgName.lastIndexOf("."), imgName.length());
             imgName = UUID.randomUUID().toString().replaceAll("\\-", "") + extName;
-            boolean result = FileIoUtil.write(getSavePyPath(path), imgName, imgFile);
+            boolean result = FileIoUtil.write(getSavePyPath(newPath), imgName, imgFile);
             if (result) {
                 data.put("state", result);
-                data.put("path", getSaveDbPath(path));
+                data.put("path", getSaveDbPath(newPath));
                 data.put("imgName", imgName);
             } else {
                 log.error("上传图片失败");
